@@ -31,7 +31,8 @@ class TestPurpleFox(unittest.TestCase):
 
         self.assertEqual(City.COIMBATORE, selected_city)
 
-    def test_select_service(self):
+    def test_should_add_multiple_services(self):
+        expected_services_list = {EventService.PHOTOGRAPHY, EventService.FOOD_CATERING}
         self.purple_fox.select_service(EventService.PHOTOGRAPHY)
 
         selected_services = self.purple_fox.get_selected_service()
@@ -41,7 +42,7 @@ class TestPurpleFox(unittest.TestCase):
         self.purple_fox.select_service(EventService.FOOD_CATERING)
         selected_services = self.purple_fox.get_selected_service()
 
-        self.assertEqual({EventService.PHOTOGRAPHY, EventService.FOOD_CATERING}, selected_services)
+        self.assertEqual(expected_services_list, selected_services)
 
     def test_select_budget(self):
         self.purple_fox.select_budget(Budget.PREMIUM)
@@ -49,3 +50,10 @@ class TestPurpleFox(unittest.TestCase):
         selected_budget = self.purple_fox.get_selected_budget()
 
         self.assertEqual(Budget.PREMIUM, selected_budget)
+
+    def test_add_service_to_selected_services(self):
+        self.purple_fox.select_service(EventService.PHOTOGRAPHY)
+
+        is_service_selected = self.purple_fox.is_service_selected(EventService.PHOTOGRAPHY)
+
+        self.assertTrue(is_service_selected)

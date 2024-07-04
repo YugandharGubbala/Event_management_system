@@ -35,3 +35,6 @@ class PurpleFox:
 
     def get_selected_budget(self):
         return self.__selected_budget
+
+    def is_service_selected(self, service):
+        return service in self.__selected_services
