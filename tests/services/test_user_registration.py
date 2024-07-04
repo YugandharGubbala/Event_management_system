@@ -5,15 +5,15 @@ from event_management.services.user_registration import UserRegistration
 
 class TestUserRegistration(unittest.TestCase):
     def test_should_return_true_if_user_is_registered(self):
-        userRegistration = UserRegistration()
+        user_registration = UserRegistration()
 
-        isUserRegistered = userRegistration.register("Aditya", "Aditya369")
+        is_user_registered = user_registration.register("Aditya", "Aditya369")
 
-        self.assertTrue(isUserRegistered)
+        self.assertTrue(is_user_registered)
 
     def test_should_return_false_if_user_is_registered(self):
-        userRegistration = UserRegistration()
+        user_registration = UserRegistration()
 
-        isUserRegistered = userRegistration.register("Aditya", "")
+        is_user_registered = user_registration.register("Aditya", "")
 
-        self.assertFalse(isUserRegistered)
+        self.assertFalse(is_user_registered)
