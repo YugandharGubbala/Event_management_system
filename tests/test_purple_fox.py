@@ -1,5 +1,6 @@
 import unittest
 
+from event_management.enums.budget import Budget
 from event_management.enums.city import City
 from event_management.enums.event_service import EventService
 from event_management.enums.occasion_type import OccasionType
@@ -41,3 +42,10 @@ class TestPurpleFox(unittest.TestCase):
         selected_services = self.purple_fox.get_selected_service()
 
         self.assertEqual({EventService.PHOTOGRAPHY, EventService.FOOD_CATERING}, selected_services)
+
+    def test_select_budget(self):
+        self.purple_fox.select_budget(Budget.PREMIUM)
+
+        selected_budget = self.purple_fox.get_selected_budget()
+
+        self.assertEqual(Budget.PREMIUM, selected_budget)
