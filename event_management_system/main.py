@@ -1,9 +1,9 @@
-from event_management.enums.budget import Budget
-from event_management.enums.city import City
-from event_management.enums.event_service import EventService
-from event_management.enums.occasion_type import OccasionType
-from event_management.purple_fox import PurpleFox
-from event_management.services.user_registration import UserRegistration
+from event_management_system.enums.budget import Budget
+from event_management_system.enums.city import City
+from event_management_system.enums.event_service import EventService
+from event_management_system.enums.occasion_type import OccasionType
+from event_management_system.purple_fox import PurpleFox
+from event_management_system.services.user_registration import UserRegistration
 
 
 class EventManagement:

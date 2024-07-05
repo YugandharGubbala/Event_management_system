@@ -1,6 +1,6 @@
 import unittest
 
-from event_management.services.user_registration import UserRegistration
+from event_management_system.services.user_registration import UserRegistration
 
 
 class TestUserRegistration(unittest.TestCase):
