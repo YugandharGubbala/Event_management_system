@@ -1,3 +1,11 @@
+import sys
+import os
+
+# Add the parent directory of event_management_system to the Python path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+
+
 from event_management_system.enums.budget import Budget
 from event_management_system.enums.city import City
 from event_management_system.enums.event_service import EventService
@@ -24,9 +32,9 @@ class EventManagement:
         print("Select a city for your event from the following options:")
         for city in list(City):
             print("- {}".format(city.name))
-        city_choice = input("Enter your choice: ")
-        selected_city = City[city_choice.upper()]
-        self.purple_fox.select_city_for_venue(selected_city)
+
+        self.takingInput_from_location_list()
+
 
         print("Select the type of event from the following options:")
         for occasion in list(OccasionType):
@@ -60,6 +68,15 @@ class EventManagement:
         selected_service = list(self.purple_fox.get_selected_service())
         converted_list = [i.name for i in selected_service]
         return converted_list
+    def takingInput_from_location_list(self):
+        try:
+            city_choice = input("Enter your choice: ")
+            selected_city = City[city_choice.upper()]
+        
+            self.purple_fox.select_city_for_venue(selected_city)
+        except:
+            print("select from options")
+            self.takingInput_from_location_list()
 
 
 if __name__ == '__main__':
